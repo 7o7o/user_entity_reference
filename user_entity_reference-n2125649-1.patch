@@ -1,0 +1,13 @@
+diff --git a/lib/Drupal/Core/Field/Plugin/Field/FieldType/EntityReferenceItem.php b/lib/Drupal/Core/Field/Plugin/Field/FieldType/EntityReferenceItem.php
+index 552f8580..fb360b0e 100644
+--- a/lib/Drupal/Core/Field/Plugin/Field/FieldType/EntityReferenceItem.php
++++ b/lib/Drupal/Core/Field/Plugin/Field/FieldType/EntityReferenceItem.php
+@@ -401,7 +401,7 @@ class EntityReferenceItem extends FieldItemBase implements OptionsProviderInterf
+       }
+       elseif (array_key_exists($selection_group_id . ':' . $this->getSetting('target_type'), $selection_plugins[$selection_group_id])) {
+         $selection_group_plugin = $selection_group_id . ':' . $this->getSetting('target_type');
+-        $handlers_options[$selection_group_plugin] = Html::escape($selection_plugins[$selection_group_id][$selection_group_plugin]['base_plugin_label']);
++        $handlers_options[$selection_group_plugin] = Html::escape($selection_plugins[$selection_group_id][$selection_group_plugin]['base_plugin_label'] ?? $selection_group_id);
+       }
+     }
+ 
